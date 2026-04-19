@@ -1,4 +1,6 @@
-pacakge com.chess;
+package com.chess;
+import java.util.List;
+import java.util.ArrayList;
 public class King extends Piece
 {
 public King(Color color)
@@ -13,7 +15,7 @@ return "K";
 @Override
 public List<Position> getPossibleMoves(Position position,Board board)
 {
-List<Integer> directions = {{0,1},{1,0},{-1,-1},{1,1},{-1,0},{0,-1},{1,-1},{-1,1}};
+int[][]  directions = {{0,1},{1,0},{-1,-1},{1,1},{-1,0},{0,-1},{1,-1},{-1,1}};
 List<Position> moves = new ArrayList<>();
 int newr,newc;
 for(int i=0;i<8;i++)

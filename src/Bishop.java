@@ -1,7 +1,7 @@
 package com.chess;
 import java.util.List;
 import java.util.ArrayList;
-public class Bishop
+public class Bishop extends Piece
 {
 public Bishop(Color color)
 {
@@ -25,11 +25,11 @@ for(int j=1;j<8;j++)
 {
 newr = position.getRow() + directions[i][0]*j;
 newc = position.getCol() + directions[i][1]*j;
-newPosition = new Postion(newr,newc);
+newPosition = new Position(newr,newc);
 if(!newPosition.isValid()) break;
-if(board.isOccupiedBySameColor()) break;
+if(board.isOccupiedBySameColor(newPosition,color)) break;
 moves.add(newPosition);
-if(board.isOccupied()) break;
+if(board.isOccupied(newPosition)) break;
 }
 }
 return moves;

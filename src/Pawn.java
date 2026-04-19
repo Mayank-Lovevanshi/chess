@@ -22,7 +22,7 @@ int newr,newc;
 newr = position.getRow() + direction;
 newPosition = new Position(newr,position.getCol());
 
-if(newPosition.isValid() && !board.isOccupied())
+if(newPosition.isValid() && !board.isOccupied(position))
 {
 moves.add(newPosition);
 }
@@ -31,20 +31,20 @@ if(!moved)
 {
 newr = position.getRow() + direction*2;
 newPosition = new Position(newr,position.getCol());
-if(newPosition.isValid() && board.isOccupied())
+if(newPosition.isValid() && board.isOccupied(newPosition))
 {
 moves.add(newPosition);
 }
 }
 
-int leftCapture,rightCapture;
+Position leftCapture,rightCapture;
 
 newr = position.getRow() + direction;
 newc = position.getCol() - 1;
 
 leftCapture = new Position(newr,newc);
 if(leftCapture.isValid() && 
-	board.isOccupied() && 
+	board.isOccupied(leftCapture) && 
 	!board.isOccupiedBySameColor(leftCapture,this.color))
 {
 moves.add(leftCapture);
@@ -55,7 +55,7 @@ newc = position.getCol() + 1;
 rightCapture = new Position(newr,newc);
 
 if(rightCapture.isValid() && 
-	board.isOccupied() && 
+	board.isOccupied(rightCapture) && 
 	!board.isOccupiedBySameColor(rightCapture,this.color))
 {
 moves.add(rightCapture);

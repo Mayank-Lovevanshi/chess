@@ -19,7 +19,7 @@ return "Q";
 public List<Position> getPossibleMoves(Position position,Board board)
 {
 List<Position> moves = new ArrayList<>();
-List<Integer> directions = {{0,1},{1,0},{0,-1},{-1,0},{1,1},{-1,-1},{1,-1},{-1,1}};
+int[][] directions = {{0,1},{1,0},{0,-1},{-1,0},{1,1},{-1,-1},{1,-1},{-1,1}};
 int newr,newc;
 for(int i=0;i<8;i++)
 {
@@ -29,7 +29,7 @@ newr = position.getRow() + directions[i][0]*j;
 newc = position.getCol() + directions[i][1]*j;
 Position newPosition = new Position(newr,newc);
 if(!newPosition.isValid()) break;
-if(board.isOccupiedBySameColor) break;
+if(board.isOccupiedBySameColor(newPosition,color)) break;
 moves.add(newPosition);
 if(board.isOccupied(newPosition)) break;
 }

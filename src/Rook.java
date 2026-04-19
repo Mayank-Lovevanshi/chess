@@ -1,7 +1,7 @@
 package com.chess;
 import java.util.List;
 import java.util.ArrayList;
-public class Rook extends Pieces
+public class Rook extends Piece
 {
 public Rook(Color color)
 {
@@ -21,8 +21,8 @@ for(int j=1;j<8;j++)
 newr = position.getRow() + directions[i][0] * j;
 newc = position.getCol() + directions[i][1] * j;
 newPosition = new Position(newr,newc);
-if(!isValid(newPosition)) break;
-if(board.isOccupiedBySameColor(newPosition,this.color)) break;
+if(!newPosition.isValid()) break;
+if(board.isOccupiedBySameColor(newPosition,color)) break;
 moves.add(newPosition);
 if(board.isOccupied(newPosition)) break;
 }

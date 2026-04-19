@@ -1,4 +1,6 @@
 package com.chess;
+import java.util.List;
+import java.util.ArrayList;
 public class Knight extends Piece
 {
 public Knight(Color color)
@@ -20,9 +22,9 @@ Position newPosition;
 for(int i=0;i<8;i++)
 {
 newr = position.getRow() + directions[i][0];
-newc = position.getCol() + direction[i][1];
+newc = position.getCol() + directions[i][1];
 newPosition = new Position(newr,newc);
-if(isValid(newPosition) && !board.isOccupiedBySameColor(newPosition,this.color))
+if(newPosition.isValid() && !board.isOccupiedBySameColor(newPosition,color))
 {
 moves.add(newPosition);
 }
