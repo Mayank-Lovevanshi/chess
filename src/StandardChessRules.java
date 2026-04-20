@@ -1,7 +1,7 @@
 package com.chess;
 import java.util.List;
 
-public class StandardChessRules extends ChessRules
+public class StandardChessRules implements ChessRules
 {
 @Override
 public boolean isValidMove(Move move,Board board)
@@ -31,7 +31,7 @@ if(capturedPiece!=null)
 board.removePiece(move.getTo());
 }
 board.placePiece(move.getTo(),movingPiece);
-bool isCheck = isInCheck(kingColor,board);
+boolean isCheck = isInCheck(kingColor,board);
 
 // undo the move
 board.removePiece(move.getTo());
@@ -91,7 +91,7 @@ Piece piece = board.getPiece(pos);
 List<Position> pieceMoves = piece.getPossibleMoves(pos,board);
 for(Position targetPos : pieceMoves)
 {
-Move move = new Move(pos,targetPos,piece,board,getPiece(targetPiece));
+Move move = new Move(pos,targetPos,piece,board.getPiece(targetPos));
 if(isValidMove(move,board)) return false;
 }
 }

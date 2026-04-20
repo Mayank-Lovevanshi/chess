@@ -53,7 +53,7 @@ board[position.getRow()][position.getCol()] = piece;
 piecePositions.put(position,piece);
 }
 
-void removePiece(Position position,Piece piece)
+void removePiece(Position position)
 {
 board[position.getRow()][position.getCol()] = null;
 piecePositions.remove(position);
